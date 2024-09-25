@@ -5,6 +5,7 @@ import {PaperProvider} from 'react-native-paper';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomNavigation from './navigations/BottomNavigation';
+import Detailview from './components/Detailview';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -18,6 +19,7 @@ const App = () => {
               component={BottomNavigation}
               options={{headerShown: false}}
             />
+            <Stack.Screen name="Detailview" component={Detailview} />
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>

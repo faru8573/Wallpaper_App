@@ -38,7 +38,12 @@ const BottomNavigation = () => {
           ),
 
           headerTitle: () => (
-            <Text style={{fontFamily: 'Poppins-Bold', fontSize: 20}}>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Bold',
+                fontSize: 20,
+                color: '#334155',
+              }}>
               Wallpaper
             </Text>
           ),
@@ -60,7 +65,12 @@ const BottomNavigation = () => {
             />
           ),
           headerTitle: () => (
-            <Text style={{fontFamily: 'Poppins-Bold', fontSize: 20}}>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Bold',
+                fontSize: 20,
+                color: '#334155',
+              }}>
               Categories
             </Text>
           ),
@@ -84,7 +94,12 @@ const BottomNavigation = () => {
             <Icon name="heart" size={26} color={focused ? 'red' : '#374151'} />
           ),
           headerTitle: () => (
-            <Text style={{fontFamily: 'Poppins-Bold', fontSize: 20}}>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Bold',
+                fontSize: 20,
+                color: '#334155',
+              }}>
               Favorite
             </Text>
           ),
