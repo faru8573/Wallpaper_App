@@ -19,7 +19,7 @@ const BottomNavigation = () => {
         tabBarStyle: {
           paddingTop: 10,
           paddingBottom: 10,
-          height: 70,
+          height: 75,
         },
       }}>
       <Tab.Screen
@@ -27,14 +27,23 @@ const BottomNavigation = () => {
         component={Home}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text style={{color: focused ? 'red' : '#374151'}}>Wallpapers</Text>
+            <Text style={{color: focused ? '#64748b' : '#374151'}}>
+              Wallpapers
+            </Text>
           ),
           tabBarIcon: ({focused}) => (
-            <Icon
-              name="wallpaper"
-              size={26}
-              color={focused ? 'red' : '#374151'}
-            />
+            <View
+              style={{
+                backgroundColor: focused ? '#3b82f6' : '',
+                borderRadius: 10,
+                padding: 5,
+              }}>
+              <Icon
+                name="wallpaper"
+                size={24}
+                color={focused ? '#fff' : '#374151'}
+              />
+            </View>
           ),
 
           headerTitle: () => (
@@ -55,14 +64,23 @@ const BottomNavigation = () => {
         component={Categories}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text style={{color: focused ? 'red' : '#374151'}}>Categories</Text>
+            <Text style={{color: focused ? '#64748b' : '#374151'}}>
+              Categories
+            </Text>
           ),
           tabBarIcon: ({focused}) => (
-            <Icon
-              name="view-module"
-              size={26}
-              color={focused ? 'red' : '#374151'}
-            />
+            <View
+              style={{
+                backgroundColor: focused ? '#3b82f6' : '',
+                borderRadius: 10,
+                padding: 5,
+              }}>
+              <Icon
+                name="view-module"
+                size={24}
+                color={focused ? '#fff' : '#374151'}
+              />
+            </View>
           ),
           headerTitle: () => (
             <Text
@@ -82,16 +100,23 @@ const BottomNavigation = () => {
         component={Favorite}
         options={{
           tabBarLabel: ({focused}) => (
-            <Text
-              style={{
-                color: focused ? 'red' : '#374151',
-                fontFamily: 'Poppins-Regular',
-              }}>
+            <Text style={{color: focused ? '#64748b' : '#374151'}}>
               Favorite
             </Text>
           ),
           tabBarIcon: ({focused}) => (
-            <Icon name="heart" size={26} color={focused ? 'red' : '#374151'} />
+            <View
+              style={{
+                backgroundColor: focused ? '#3b82f6' : '',
+                borderRadius: 10,
+                padding: 5,
+              }}>
+              <Icon
+                name="heart"
+                size={24}
+                color={focused ? '#fff' : '#374151'}
+              />
+            </View>
           ),
           headerTitle: () => (
             <Text

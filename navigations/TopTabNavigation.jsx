@@ -21,7 +21,7 @@ const TopTabNavigation = () => {
 
         tabBarIndicatorStyle: {
           height: 5,
-          backgroundColor: 'red',
+          backgroundColor: '#374151',
         },
       }}>
       <Tab.Screen
@@ -31,9 +31,7 @@ const TopTabNavigation = () => {
           tabBarLabel: ({focused}) => (
             <View
               style={{
-                backgroundColor: focused
-                  ? 'rgba(255, 0, 0, 0.8)'
-                  : 'transparent',
+                backgroundColor: focused ? '#22c55e' : '',
                 borderRadius: 10,
                 paddingHorizontal: 10,
                 paddingTop: 4,
@@ -52,7 +50,7 @@ const TopTabNavigation = () => {
             </View>
           ),
           tabBarIcon: ({focused}) => (
-            <Icon name="leaf" size={22} color={focused ? 'red' : '#374151'} />
+            <Icon name="leaf" size={22} color={focused ? '#22c55e' : ''} />
           ),
         }}
       />
@@ -93,7 +91,7 @@ const TopTabNavigation = () => {
           tabBarLabel: ({focused}) => (
             <View
               style={{
-                backgroundColor: focused ? 'rgba(255,0,0,0.8)' : 'transparent',
+                backgroundColor: focused ? '#FF4081' : 'transparent',
                 borderRadius: 10,
                 paddingHorizontal: 10,
                 paddingTop: 4,
@@ -115,7 +113,7 @@ const TopTabNavigation = () => {
             <Icon
               name="shuffle"
               size={22}
-              color={focused ? 'red' : '#374151'}
+              color={focused ? '#FF4081' : '#374151'}
             />
           ),
         }}
@@ -127,9 +125,7 @@ const TopTabNavigation = () => {
           tabBarLabel: ({focused}) => (
             <View
               style={{
-                backgroundColor: focused
-                  ? 'rgba(255, 0, 0, 0.8)'
-                  : 'transparent',
+                backgroundColor: focused ? '#FFD700' : 'transparent',
                 borderRadius: 10,
                 paddingHorizontal: 10,
                 paddingTop: 4,
@@ -148,7 +144,11 @@ const TopTabNavigation = () => {
             </View>
           ),
           tabBarIcon: ({focused}) => (
-            <Icon name="star" size={22} color={focused ? 'red' : '#374151'} />
+            <Icon
+              name="star"
+              size={22}
+              color={focused ? '#FFD700' : '#374151'}
+            />
           ),
         }}
       />
