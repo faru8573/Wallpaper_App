@@ -1,22 +1,19 @@
 import {View, Text, Image, TouchableOpacity, Share} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {useRoute} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {onShare, saveFavorite, saveImage} from '../utils/utils';
+import ModalComp from './Modal';
 
 const Detailview = () => {
   const route = useRoute();
   const {url} = route.params;
+  const [isModalVisible, setModalVisible] = useState(false);
 
-  const onShare = async () => {
-    try {
-      await Share.share({
-        message: `Check out this wallpaper: ${url}`,
-        url: url,
-      });
-    } catch (error) {
-      console.error('error while shareing', error);
-    }
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
   };
+
   return (
     <View className="flex-1">
       <Image
@@ -26,7 +23,7 @@ const Detailview = () => {
       />
 
       <View style={{position: 'absolute', top: 20, right: 20}}>
-        <TouchableOpacity onPress={onShare}>
+        <TouchableOpacity onPress={() => onShare(url)}>
           <Icon name="share-variant" size={30} color="#fff" />
         </TouchableOpacity>
       </View>
@@ -41,18 +38,29 @@ const Detailview = () => {
           justifyContent: 'space-evenly',
           padding: 10,
           backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          alignItems: 'center',
         }}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => saveImage(url)}
+          style={{alignItems: 'center', justifyContent: 'center'}}>
           <Icon name="content-save" size={30} color="#fff" />
           <Text style={{color: '#fff', textAlign: 'center'}}>Save</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        {/* Modal for applying wallpaper */}
+
+        <ModalComp isModalVisible={isModalVisible} toggleModal={toggleModal} />
+
+        <TouchableOpacity
+          onPress={toggleModal}
+          style={{alignItems: 'center', justifyContent: 'center'}}>
           <Icon name="check-circle" size={30} color="#fff" />
           <Text style={{color: '#fff', textAlign: 'center'}}>Apply</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => saveFavorite(url)}
+          style={{alignItems: 'center', justifyContent: 'center'}}>
           <Icon name="heart" size={30} color="#fff" />
           <Text style={{color: '#fff', textAlign: 'center'}}>Favorite</Text>
         </TouchableOpacity>

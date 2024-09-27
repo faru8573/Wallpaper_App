@@ -50,7 +50,7 @@ const TopTabNavigation = () => {
             </View>
           ),
           tabBarIcon: ({focused}) => (
-            <Icon name="leaf" size={22} color={focused ? '#22c55e' : ''} />
+            <Icon name="leaf" size={26} color={focused ? '#22c55e' : ''} />
           ),
         }}
       />
@@ -80,7 +80,7 @@ const TopTabNavigation = () => {
             </View>
           ),
           tabBarIcon: ({focused}) => (
-            <Icon name="fire" size={22} color={focused ? 'red' : '#374151'} />
+            <Icon name="fire" size={26} color={focused ? 'red' : '#374151'} />
           ),
         }}
       />
@@ -112,7 +112,7 @@ const TopTabNavigation = () => {
           tabBarIcon: ({focused}) => (
             <Icon
               name="shuffle"
-              size={22}
+              size={26}
               color={focused ? '#FF4081' : '#374151'}
             />
           ),
@@ -146,7 +146,7 @@ const TopTabNavigation = () => {
           tabBarIcon: ({focused}) => (
             <Icon
               name="star"
-              size={22}
+              size={26}
               color={focused ? '#FFD700' : '#374151'}
             />
           ),

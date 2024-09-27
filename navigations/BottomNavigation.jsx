@@ -76,7 +76,7 @@ const BottomNavigation = () => {
                 padding: 5,
               }}>
               <Icon
-                name="view-module"
+                name="apps"
                 size={24}
                 color={focused ? '#fff' : '#374151'}
               />

@@ -19,7 +19,16 @@ const App = () => {
               component={BottomNavigation}
               options={{headerShown: false}}
             />
-            <Stack.Screen name="Detailview" component={Detailview} />
+            <Stack.Screen
+              name="Detailview"
+              component={Detailview}
+              options={{
+                title: 'Preview',
+                headerTitleStyle: {
+                  fontFamily: 'Poppins-Bold',
+                },
+              }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>
