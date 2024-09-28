@@ -17,7 +17,6 @@ const TopTabNavigation = () => {
           fontFamily: 'Poppins-Regular',
           paddingVertical: -5,
         },
-        tabBarStyle: {},
 
         tabBarIndicatorStyle: {
           height: 5,

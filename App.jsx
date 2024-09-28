@@ -6,6 +6,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomNavigation from './navigations/BottomNavigation';
 import Detailview from './components/Detailview';
+import Favorite from './screens/Favorite';
 
 const App = () => {
   const Stack = createNativeStackNavigator();

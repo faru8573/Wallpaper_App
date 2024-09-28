@@ -62,13 +62,16 @@ export const saveFavorite = async url => {
   try {
     let favorite = await AsyncStorage.getItem('favorites');
     favorite = favorite ? JSON.parse(favorite) : [];
+    console.log('localFavorite', favorite);
 
     if (!favorite.includes(url)) {
       favorite.push(url);
       await AsyncStorage.setItem('favorites', JSON.stringify(favorite));
       ToastAndroid.show('Added to favorite', ToastAndroid.SHORT);
     } else {
-      ToastAndroid.show('Already in favorite', ToastAndroid.SHORT);
+      const updatedFav = favorite.filter(item => item !== url);
+      await AsyncStorage.setItem('favorites', JSON.stringify(updatedFav));
+      ToastAndroid.show('Removed from favorite', ToastAndroid.SHORT);
     }
   } catch (error) {
     console.error('Error saving favorite:', error);

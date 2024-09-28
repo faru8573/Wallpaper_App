@@ -1,8 +1,52 @@
-import {View, Text, Alert, TouchableOpacity} from 'react-native';
+import {View, Text, Alert, TouchableOpacity, ToastAndroid} from 'react-native';
 import React from 'react';
+import {setWallpaper, TYPE_SCREEN} from 'rn-wallpapers';
 import Modal from 'react-native-modal';
+import RTNDeviceWallpaper from 'react-native-device-wallpaper-manager/js/NativeDeviceWallpaper';
 
-const ModalComp = ({isModalVisible, toggleModal}) => {
+const ModalComp = ({isModalVisible, toggleModal, imageUrl}) => {
+  const setWallpaperAsHome = async () => {
+    try {
+      await RTNDeviceWallpaper?.setWallpaper('../assets/test.jpg', 'both');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSetWallpaper = async type => {
+    try {
+      switch (type) {
+        case 'home':
+          await setWallpaper(
+            {
+              uri: imageUrl,
+            },
+            TYPE_SCREEN.HOME,
+          );
+          break;
+
+        case 'lock':
+          await setWallpaper(
+            {
+              uri: imageUrl,
+            },
+            TYPE_SCREEN.LOCK,
+          );
+          break;
+
+        case 'both':
+          await setWallpaper(
+            {
+              uri: imageUrl,
+            },
+            TYPE_SCREEN.BOTH,
+          );
+          break;
+      }
+    } catch (error) {
+      console.error('Error setting wallpaper:', error);
+    }
+  };
   return (
     <Modal isVisible={isModalVisible}>
       <View
@@ -20,7 +64,10 @@ const ModalComp = ({isModalVisible, toggleModal}) => {
           }}>
           Select an option:
         </Text>
-        <TouchableOpacity onPress={() => Alert.alert('Set as Home Screen')}>
+        <TouchableOpacity
+          onPress={() => {
+            setWallpaperAsHome();
+          }}>
           <Text
             style={{
               fontFamily: 'Poppins-regular',
@@ -30,7 +77,7 @@ const ModalComp = ({isModalVisible, toggleModal}) => {
             Home Screen
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert('Set as Lock Screen')}>
+        <TouchableOpacity onPress={() => handleSetWallpaper('lock')}>
           <Text
             style={{
               fontFamily: 'Poppins-regular',
@@ -40,8 +87,7 @@ const ModalComp = ({isModalVisible, toggleModal}) => {
             Lock Screen
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => Alert.alert('Set as Home & Lock Screen')}>
+        <TouchableOpacity onPress={() => Alert.alert('both')}>
           <Text
             style={{
               fontFamily: 'Poppins-regular',
@@ -51,7 +97,7 @@ const ModalComp = ({isModalVisible, toggleModal}) => {
             Home & Lock Screen
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert('Crop')}>
+        <TouchableOpacity onPress={() => handleSetWallpaper('Crop')}>
           <Text
             style={{
               fontFamily: 'Poppins-regular',
