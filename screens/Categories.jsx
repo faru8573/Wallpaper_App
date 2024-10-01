@@ -10,12 +10,12 @@ const Categories = () => {
     const getCategories = async () => {
       try {
         const res = await fetch(
-          'http://192.168.183.162/ruang-admin/api/get-categories.php',
+          'http://192.168.159.162/ruang-admin/api/get-categories.php',
         );
         const jsonRes = await res.json();
         const updatedData = jsonRes.map(item => ({
           ...item,
-          image: `http://192.168.183.162/ruang-admin/${item.image}`,
+          image: `http://192.168.159.162/ruang-admin/${item.image}`,
         }));
         setCategories(updatedData);
       } catch (error) {
