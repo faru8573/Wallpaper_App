@@ -13,7 +13,7 @@ const Fresh = () => {
     const fetchWallpapers = async () => {
       try {
         const res = await fetch(
-          'http://192.168.159.162/ruang-admin/api/get-wallpapers.php',
+          'http://192.168.31.147/ruang-admin/api/get-wallpapers.php',
           {
             method: 'GET',
           },
@@ -35,7 +35,7 @@ const Fresh = () => {
         setData(
           jsonData.map(item => ({
             ...item,
-            url: `http://192.168.159.162/ruang-admin/${item.image}`,
+            url: `http://192.168.31.147/ruang-admin/${item.image}`,
           })),
         );
       } catch (error) {
